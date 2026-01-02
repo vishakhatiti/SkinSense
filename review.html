@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Feedback | SkinSense</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>User Feedback</h1>
+    <p>Your experience helps us improve our organic products</p>
+</header>
+
+<section class="review-wrapper">
+
+    <div class="review-card">
+        <h2>📝 Share Your Experience</h2>
+
+        <form>
+
+            <!-- PRODUCT SELECTION -->
+            <label>Product Used</label>
+            <select required>
+                <option value="">Select Product</option>
+                <option>Haldi & Neem Soap</option>
+                <option>Aloe Vera Soap</option>
+                <option>Rose Soap</option>
+                <option>Multani Mitti Soap</option>
+                <option>Herbal Shampoo</option>
+            </select>
+
+            <!-- RATING -->
+            <label>Rating</label>
+            <div class="rating">
+                <input type="radio" name="rate" id="r5"><label for="r5">★</label>
+                <input type="radio" name="rate" id="r4"><label for="r4">★</label>
+                <input type="radio" name="rate" id="r3"><label for="r3">★</label>
+                <input type="radio" name="rate" id="r2"><label for="r2">★</label>
+                <input type="radio" name="rate" id="r1"><label for="r1">★</label>
+            </div>
+
+            <!-- FEEDBACK -->
+            <label>Your Feedback</label>
+            <textarea rows="4" placeholder="Write your experience..." required></textarea>
+
+            <!-- SUBMIT -->
+            <button class="btn">Submit Feedback</button>
+
+        </form>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <p>© 2025 SkinSense | AyurCare Tech</p>
+</footer>
+
+</body>
+</html>

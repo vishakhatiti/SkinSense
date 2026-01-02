@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Recommendation | SkinSense</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header header-small">
+    <h1>Your Recommendation</h1>
+    <p>Based on your skin & hair analysis</p>
+</header>
+
+<!-- RESULTS -->
+<section class="result-wrapper section-gap">
+
+    <!-- SOAP RESULT -->
+    <div class="result-card highlight">
+        <h2>🧼 Recommended Soap</h2>
+        <p id="soapResult"></p>
+        <p class="reason" id="soapReason"></p>
+    </div>
+
+    <!-- SHAMPOO RESULT -->
+    <div class="result-card">
+        <h2>🧴 Shampoo Suggestion</h2>
+        <p id="shampooResult"></p>
+        <p class="reason" id="shampooReason"></p>
+    </div>
+
+    <!-- USER INPUT SUMMARY -->
+    <div class="result-card">
+        <h2>📋 Your Inputs</h2>
+        <p><strong>Skin Type:</strong> <span id="skinType"></span></p>
+        <p><strong>Skin Problems:</strong> <span id="skinProblems"></span></p>
+        <p><strong>Hair Problems:</strong> <span id="hairProblems"></span></p>
+        <p class="note">Analysis Date: <span id="date"></span></p>
+    </div>
+
+</section>
+
+<!-- FEEDBACK -->
+<section class="review-wrapper section-gap">
+    <div class="review-card">
+        <h2>📝 Feedback</h2>
+
+        <label>How helpful was this recommendation?</label>
+        <select id="rating">
+            <option value="">Select</option>
+            <option>Very Helpful</option>
+            <option>Helpful</option>
+            <option>Average</option>
+            <option>Not Helpful</option>
+        </select>
+
+        <label>Your Comments (optional)</label>
+        <textarea id="comment" rows="4" placeholder="Write your feedback here..."></textarea>
+    </div>
+</section>
+
+<!-- ACTIONS -->
+<div class="actions">
+    <button class="btn" onclick="downloadReport()">Download Report</button>
+</div>
+
+<footer class="footer">
+    <p>© 2025 SkinSense | AyurCare Tech</p>
+</footer>
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/report.js"></script>
+
+<script>
+    const data = JSON.parse(localStorage.getItem("skinsenseResult"));
+
+    if (data) {
+        document.getElementById("soapResult").innerText = data.soap;
+        document.getElementById("shampooResult").innerText = data.shampoo;
+
+        document.getElementById("skinType").innerText = data.skinType;
+        document.getElementById("skinProblems").innerText =
+            data.skinProblems.length ? data.skinProblems.join(", ") : "None";
+        document.getElementById("hairProblems").innerText =
+            data.hairProblems.length ? data.hairProblems.join(", ") : "None";
+
+        document.getElementById("date").innerText = data.date;
+
+        // Reason logic
+        document.getElementById("soapReason").innerText =
+            "Selected based on your skin type and reported skin concerns.";
+
+        document.getElementById("shampooReason").innerText =
+            data.shampoo === "Not Recommended"
+                ? "No major hair problems selected, so shampoo was not required."
+                : "Hair-related issues detected, so herbal shampoo is suggested.";
+    }
+</script>
+
+</body>
+</html>

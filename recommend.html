@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin & Hair Analysis | SkinSense</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>SkinSense Analysis</h1>
+    <p>Personalized recommendation for our organic products</p>
+</header>
+
+<section class="form-wrapper">
+
+    <!-- SKIN CARD -->
+    <div class="form-card">
+        <h2>🧴 Skin Analysis</h2>
+
+        <label>Skin Type</label>
+        <select id="skinType">
+            <option value="">Select</option>
+            <option value="Oily">Oily</option>
+            <option value="Dry">Dry</option>
+            <option value="Sensitive">Sensitive</option>
+            <option value="Normal">Normal</option>
+        </select>
+
+        <label>Skin Problems</label>
+        <div class="options">
+            <label><input type="checkbox" name="skinProblem" value="Acne"> Acne</label>
+            <label><input type="checkbox" name="skinProblem" value="Dryness"> Dryness</label>
+            <label><input type="checkbox" name="skinProblem" value="Itching"> Itching</label>
+            <label><input type="checkbox" name="skinProblem" value="Tanning"> Tanning</label>
+        </div>
+    </div>
+
+    <!-- SHAMPOO CARD -->
+    <div class="form-card">
+        <h2>🧖 Hair Analysis (Optional)</h2>
+        <p class="hint">Select only if you want shampoo recommendation</p>
+
+        <div class="options">
+            <label><input type="checkbox" name="hairProblem" value="Hair Fall"> Hair Fall</label>
+            <label><input type="checkbox" name="hairProblem" value="Dandruff"> Dandruff</label>
+        </div>
+
+        <p class="note">
+            * Our herbal shampoo is freshly prepared and recommended only when required.
+        </p>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-box">
+        <button class="btn" onclick="getRecommendation()">Get My Recommendation</button>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <p>© 2025 SkinSense | AyurCare Tech</p>
+</footer>
+
+<script src="js/recommend.js"></script>
+
+</body>
+</html>
